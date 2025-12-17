@@ -12,7 +12,7 @@ const generateToken = (user) => {
 
 const handleUserSignup = async (req, res) => {
     try {
-        const {name, email, password, address} = req.body;
+        const {name, email, password, address, role} = req.body;
         
         if (!name || !email || !password) {
            return res.status(400).json({ message: "All required fields missing" });
@@ -25,6 +25,7 @@ const handleUserSignup = async (req, res) => {
         email,
         passwordHash,
         address,
+        role
         });
 
         const token = generateToken(user);
@@ -47,9 +48,9 @@ const handleUserSignup = async (req, res) => {
         });
 
     } catch (error) {
-        console.error(err);
+        console.error(error);
 
-        if (err.name === "SequelizeUniqueConstraintError") {
+        if (error.name === "SequelizeUniqueConstraintError") {
             return res.status(409).json({ message: "Email already exists" });
         }
 
@@ -93,7 +94,7 @@ const handleUserLogin = async (req, res) => {
             },
         });
 
-    } catch (error) {
+    } catch (err) {
         console.error(err);
         res.status(500).json({ message: "Server error" });
     }

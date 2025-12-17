@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const cookieParser = require("cookie-parser");
 require("dotenv").config();
 
 const { connectDB, sequelize } = require("./config/db");
@@ -8,7 +9,7 @@ const authRouter = require("./routes/authRoutes");
 
 const app = express();
 app.use(cors({
-  origin: "http://localhost:3000",
+  origin: "http://localhost:5173",
   credentials: true,
 }));
 app.use(express.json());

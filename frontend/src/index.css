@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+@layer components {
+  .input-dark {
+    @apply w-full mb-2 px-3 py-2 rounded bg-gray-700 text-gray-100
+           border border-gray-600
+           focus:outline-none focus:ring-2 focus:ring-blue-500;
+  }
+
+  .error-text {
+    @apply text-red-400 text-sm mb-1;
+  }
+
+  .role-card {
+    @apply cursor-pointer;
+  }
+
+  .role-card-inner {
+    @apply flex flex-col items-center justify-center gap-1
+           p-4 rounded-lg border border-gray-600
+           transition-all duration-200
+           hover:border-blue-400;
+  }
+}
