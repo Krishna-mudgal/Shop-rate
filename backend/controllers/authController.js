@@ -109,8 +109,29 @@ const handleUserLogout = (req, res) => {
     res.status(200).json({ message: "Logged out successfully" });
 };
 
+const handleUpdatePassword = async (req, res) => {
+    const userId = req.user.id;
+    const {newPassword} = req.body;
+
+    const passwordHash = await bcrypt.hash(newPassword, 10);
+
+    await User.update(
+        {
+            passwordHash: passwordHash,
+        },
+        {
+            where: {
+                id : userId
+            }
+        }
+    );
+
+    res.json({ message: "Password updated" });
+}
+
 module.exports = {
     handleUserLogin,
     handleUserLogout,
-    handleUserSignup
+    handleUserSignup,
+    handleUpdatePassword
 }

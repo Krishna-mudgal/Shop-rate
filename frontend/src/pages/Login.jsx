@@ -27,7 +27,15 @@ export default function Login() {
             return;
         }
 
-        alert("Login successful");
+        const role = data.user.role;
+
+        if (role === "ADMIN") {
+            navigate("/admin/dashboard");
+        } else if (role === "OWNER") {
+            navigate("/owner/dashboard");
+        } else {
+            navigate("/user/home");
+        }
     };
 
     return (

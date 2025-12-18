@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import RatingTable from "../components/RatingTable";
-import UpdatePasswordModal from "../components/UserPasswordModal";
+import RatingTable from "../../components/RatingTable";
+import UpdatePasswordModal from "../../components/UserPasswordModal";
 
 export default function OwnerHomePage() {
   const navigate = useNavigate();
