@@ -17,6 +17,11 @@ const Store = sequelize.define(
       type: DataTypes.STRING(400),
       allowNull: false,
     },
+    email: {
+      type: DataTypes.STRING(255),
+      allowNull: false,
+      unique: true,
+    },
     ownerId: {
       type: DataTypes.INTEGER.UNSIGNED,
       allowNull: false,

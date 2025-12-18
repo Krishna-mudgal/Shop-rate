@@ -7,6 +7,7 @@ const { connectDB, sequelize } = require("./config/db");
 require("./models/User");
 const authRouter = require("./routes/authRoutes");
 const ownerRouter = require("./routes/ownerRoutes");
+const adminRouter = require("./routes/adminRoutes");
 
 const app = express();
 app.use(cors({
@@ -18,11 +19,13 @@ app.use(cookieParser());
 
 app.use("/api/auth", authRouter);
 app.use("/api/owner", ownerRouter);
+app.use("/api/admin", adminRouter);
 
 const PORT = process.env.PORT;
 
 (async () => {
   await connectDB();
+  // await sequelize.sync({ alter: true });
   await sequelize.sync();
   app.listen(PORT, () => console.log(`API running on ${PORT}`));
 })();
