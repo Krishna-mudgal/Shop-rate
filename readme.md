@@ -195,11 +195,13 @@ Backend assumes **frontend sends valid data**.
 
 Create a `.env` file in `backend/`:
 
-`PORT=5000
+```text
+PORT=5000
 DB_NAME=shop_rate
 DB_USER=root
 DB_PASS=your_password
 JWT_SECRET=your_secret_key`
+```
 
 ---
 
