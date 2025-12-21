@@ -30,11 +30,11 @@ export default function Login() {
         const role = data.user.role;
 
         if (role === "ADMIN") {
-            navigate("/admin/dashboard");
+            navigate("/admin");
         } else if (role === "OWNER") {
-            navigate("/owner/dashboard");
+            navigate("/owner");
         } else {
-            navigate("/user/home");
+            navigate("/user");
         }
     };
 

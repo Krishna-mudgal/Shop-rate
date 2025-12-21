@@ -8,6 +8,8 @@ require("./models/User");
 const authRouter = require("./routes/authRoutes");
 const ownerRouter = require("./routes/ownerRoutes");
 const adminRouter = require("./routes/adminRoutes");
+const ratingRouter = require("./routes/ratingRoutes");
+const userRouter = require("./routes/userRouter");
 
 const app = express();
 app.use(cors({
@@ -20,6 +22,8 @@ app.use(cookieParser());
 app.use("/api/auth", authRouter);
 app.use("/api/owner", ownerRouter);
 app.use("/api/admin", adminRouter);
+app.use("/api/ratings", ratingRouter);
+app.use("/api/user", userRouter);
 
 const PORT = process.env.PORT;
 

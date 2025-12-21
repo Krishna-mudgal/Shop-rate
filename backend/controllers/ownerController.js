@@ -34,7 +34,7 @@ const handleGetOwnerDashboard = async (req, res) => {
       ratings.length === 0
         ? null
         : ratings.reduce((sum, r) => {
-            sum + r.rating;
+            return sum + r.rating;
           }, 0) / ratings.length;
 
     const formattedRatings = ratings.map((r) => ({

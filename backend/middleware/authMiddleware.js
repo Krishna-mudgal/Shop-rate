@@ -21,14 +21,23 @@ const ownerOnly = (req, res, next) => {
 };
 
 const adminOnly = (req, res, next) => {
-  if (req.user.role !== "ADMIN") {i
+  if (req.user.role !== "ADMIN") {
     return res.status(403).json({ message: "Access denied" });
   }
   next();
 };
 
+const userOnly = (req, res, next) => {
+  if(req.user.role !== "USER") {
+    return res.status(403).json({message: "Access denied"});
+  }
+
+  next(); 
+}
+
 module.exports = {
     protect,
     ownerOnly,
-    adminOnly
+    adminOnly,
+    userOnly
 }

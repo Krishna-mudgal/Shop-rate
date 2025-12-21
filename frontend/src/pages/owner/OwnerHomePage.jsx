@@ -40,7 +40,6 @@ export default function OwnerHomePage() {
 
   return (
     <div className="min-h-screen bg-gray-900 text-gray-100 p-6">
-      {/* Header */}
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-2xl font-semibold">Owner Dashboard</h1>
 
@@ -61,7 +60,6 @@ export default function OwnerHomePage() {
         </div>
       </div>
 
-      {/* Average Rating Card */}
       <div className="bg-gray-800 p-6 rounded-xl mb-6">
         <p className="text-sm text-gray-400">Average Store Rating</p>
         <h2 className="text-4xl font-bold mt-2">
@@ -70,7 +68,6 @@ export default function OwnerHomePage() {
         </h2>
       </div>
 
-      {/* Ratings Table */}
       <div className="bg-gray-800 p-6 rounded-xl">
         <h2 className="text-xl font-semibold mb-4">
           Users Who Rated Your Store
@@ -79,7 +76,6 @@ export default function OwnerHomePage() {
         <RatingTable ratings={ratings} />
       </div>
 
-      {/* Update Password Modal */}
       {showPasswordModal && (
         <UpdatePasswordModal onClose={() => setShowPasswordModal(false)} />
       )}
